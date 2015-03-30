@@ -14,3 +14,15 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
+
+# Ignore application configuration
+/config/application.yml
+public/assets/*
+!public/assets/manifest*
+
+/vendor/bundle
+/public/uploads

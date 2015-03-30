@@ -38,3 +38,13 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'devise'
+gem 'rmagick', :require => false
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'simple_form'
+gem 'acts-as-taggable-on'
+gem 'asset_sync'
+gem 'twitter'
+gem 'jpmobile'
+gem 'exception_notification', :github => 'smartinez87/exception_notification'
