@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/doabit/semantic-ui-sass.git
+  revision: ba3acee5bb44f2532436f83e3d7d0cd3152b5fe9
+  branch: v1.0beta
+  specs:
+    semantic-ui-sass (1.8.1.0)
+      sass (~> 3.2)
+
+GIT
   remote: git://github.com/smartinez87/exception_notification.git
   revision: 60a3b774ebdbc5f892ac4a10e69c636f99929b1a
   specs:
@@ -149,6 +157,8 @@ GEM
     fog-xml (0.1.1)
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
+    font-awesome-rails (4.3.0.0)
+      railties (>= 3.2, < 5.0)
     formatador (0.2.5)
     hashie (3.4.0)
     hike (1.2.3)
@@ -287,6 +297,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   exception_notification!
+  font-awesome-rails
   jbuilder (~> 2.0)
   jpmobile
   jquery-rails
@@ -296,6 +307,7 @@ DEPENDENCIES
   rmagick
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
+  semantic-ui-sass!
   simple_form
   spring
   sqlite3
