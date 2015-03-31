@@ -11,7 +11,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150330093016) do
+ActiveRecord::Schema.define(version: 20150331074851) do
+
+  create_table "calendars", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "image"
+    t.string   "link"
+    t.integer  "like_count"
+    t.boolean  "is_public"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "official_id"
+  end
+
+  add_index "calendars", ["official_id"], name: "index_calendars_on_official_id", using: :btree
+
+  create_table "events", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "image"
+    t.string   "place"
+    t.boolean  "is_all_day"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "link"
+    t.text     "note"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "calendar_id"
+  end
+
+  add_index "events", ["calendar_id"], name: "index_events_on_calendar_id", using: :btree
+
+  create_table "officials", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "image"
+    t.string   "link"
+    t.boolean  "is_company"
+    t.integer  "like_count"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -32,8 +74,8 @@ ActiveRecord::Schema.define(version: 20150330093016) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["uid"], name: "index_users_on_uid", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["uid"], name: "index_users_on_uid", unique: true, using: :btree
 
 end
