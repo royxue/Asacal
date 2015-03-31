@@ -9,4 +9,5 @@ class Event < ActiveRecord::Base
     self.is_all_day ||= false
     self.start_time ||= Time.now
     self.end_time ||= self.start_time + 1.hour
+  end
 end
