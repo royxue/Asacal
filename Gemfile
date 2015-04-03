@@ -38,6 +38,7 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'rails_admin'
 gem 'devise'
 gem 'rmagick', :require => false
 gem 'omniauth-facebook'

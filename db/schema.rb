@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150331162056) do
+ActiveRecord::Schema.define(version: 20150403082529) do
 
   create_table "calendars", force: true do |t|
     t.string   "name"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150331162056) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "calendar_id"
+    t.integer  "like_count"
   end
 
   add_index "events", ["calendar_id"], name: "index_events_on_calendar_id", using: :btree
