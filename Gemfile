@@ -51,3 +51,12 @@ gem 'jpmobile'
 gem 'exception_notification', :github => 'smartinez87/exception_notification'
 gem 'font-awesome-rails'
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+
+
+group :development, :test do
+  gem 'debugger'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
