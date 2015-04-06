@@ -7,7 +7,7 @@ class Official < ActiveRecord::Base
   after_initialize :default
   validates :name, :description, presence: true
 
-  has_many :calendars
+  has_many :calendars, dependent: :destroy
 
   def default
     self.is_company ||= false
