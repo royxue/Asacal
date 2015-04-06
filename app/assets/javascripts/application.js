@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 // Loads all Semantic javascripts
+//= require moment
+//= require fullcalendar
 //= require semantic-ui
+//= require_tree .
