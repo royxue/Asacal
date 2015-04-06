@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/ctran/annotate_models.git
+  revision: 52ffefcbe4e89cb172e2007eda0f74ac40798727
+  specs:
+    annotate (2.6.8)
+      activerecord (>= 3.2, <= 4.3)
+      rake (~> 10.4)
+
+GIT
   remote: git://github.com/doabit/semantic-ui-sass.git
   revision: ba3acee5bb44f2532436f83e3d7d0cd3152b5fe9
   branch: v1.0beta
@@ -340,6 +348,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on
+  annotate!
   asset_sync
   better_errors
   binding_of_caller

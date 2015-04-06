@@ -1,3 +1,23 @@
+# == Schema Information
+#
+# Table name: events
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  description :text
+#  image       :string(255)
+#  place       :string(255)
+#  is_all_day  :boolean
+#  start_time  :datetime
+#  end_time    :datetime
+#  link        :string(255)
+#  note        :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  calendar_id :integer
+#  like_count  :integer
+#
+
 class Event < ActiveRecord::Base
   after_initialize :default
 

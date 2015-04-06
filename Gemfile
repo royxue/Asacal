@@ -56,6 +56,7 @@ gem 'momentjs-rails'
 
 
 group :development, :test do
+  gem 'annotate', github: 'ctran/annotate_models'
   gem 'debugger'
   gem 'better_errors'
   gem 'binding_of_caller'
