@@ -2,44 +2,42 @@
 
 <div id="loginbox" class="ui piled segment">
 <div class="ui two column middle aligned relaxed fitted stackable grid">
-  <div class="column">
-    <div class="ui form segment">
-      <div class="field">
-        <label>Username</label>
-        <div class="ui left icon input">
-          <input type="text" placeholder="Username">
-          <i class="user icon"></i>
-        </div>
-      </div>
-      <div class="field">
-        <label>Password</label>
-        <div class="ui left icon input">
-          <input type="password">
-          <i class="lock icon"></i>
-        </div>
-      </div>
-
-      <div class="ui buttons">
-        <div class="ui positive button">User</div>
-        <div class="or" data-text="or"></div>
-        <div class="ui positive button">Official</div>
-      </div>
-
+  <div class="left aligned column">
+    <%=link_to new_user_session_path do%>
+    <div id="signin" class="green ui labeled icon button">
+      <i class="user icon"></i>
+      User Sign in
     </div>
+    <% end %>
+    <%=link_to new_official_session_path do%>
+    <div id="signin" class="red ui labeled icon button">
+      <i class="users icon"></i>
+      Official Sign in
+    </div>
+    <% end %>
   </div>
   <div class="ui vertical divider">
     Or
   </div>
-  <div class="center aligned column">
-    <div class="ui facebook button">
-      <i class="facebook icon"></i>
-      <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), class:"button-link"%>
-    </div>
-    <br />
+  <div class="left aligned column">
+    <%= link_to user_omniauth_authorize_path(:facebook) do%>
+      <div class="ui facebook button">
+        <i class="facebook icon"></i>
+        Facebook
+      </div>
+    <% end %>
+    <%= link_to new_user_registration_path do%>
     <div id="signup" class="green ui labeled icon button">
       <i class="signup icon"></i>
       Sign Up
     </div>
+    <% end %>
+    <%= link_to "Apply", new_official_registration_path, class:"button-link"%>
+    <div id="signup" class="red ui labeled icon button">
+      <i class="signup icon"></i>
+      Apply
+    </div>
+    <p>Official Apply Entrance</p>
   </div>
 </div>
 </div>
