@@ -1,0 +1,44 @@
+<div id="header" class="ui piled segment">
+  <img class="ui tiny circular image" id="user-image" src="<%= current_user.image %>">
+  <h1><%= current_user.name %></h1>
+  <span>
+    <%=link_to destroy_user_session_path, :method => :delete do%>
+    <div id="logout-btn" class="ui red animated button">
+      <div class="visible content">Log out</div>
+      <div class="hidden content">Now</div>
+    </div>
+    <%end%>
+  </span>
+</div>
+
+<div id="l-container">
+  <%= render "layouts/sidebar"%>
+  <div id="s-container">
+    <div class="ui tabluar menu">
+      <a class="active item" data-tab="cal">
+        Calendars
+      </a>
+      <a class="item" data-tab="off-list">
+        Follow Officials
+      </a>
+      <a class="item" data-tab="cal-list">
+        Follow Calendarss
+      </a>
+      <a class="item" data-tab="eve-list">
+        Follow Events
+      </a>
+    </div>
+      <div class="ui bottom attached active tab segment" data-tab="cal">
+        <div id='calendar'></div>
+      </div>
+      <div class="ui bottom attached tab segment" data-tab="off-list">
+        No Officials Relationship Now
+      </div>
+      <div class="ui bottom attached tab segment" data-tab="cal-list">
+        First
+      </div>
+      <div class="ui bottom attached tab segment" data-tab="eve-list">
+        First
+      </div>
+  </div>
+</div>

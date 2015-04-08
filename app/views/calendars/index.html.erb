@@ -1,23 +1,57 @@
-<h1>Listing calendars</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @calendars.each do |calendar| %>
-      <tr>
-        <td><%= link_to 'Show', calendar %></td>
-        <td><%= link_to 'Edit', edit_calendar_path(calendar) %></td>
-        <td><%= link_to 'Destroy', calendar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div id="header" class="ui piled segment"><h1>Hot Calendars</h1></div>
 
 <br>
-
-<%= link_to 'New Calendar', new_calendar_path %>
+<div id="l-container">
+  <div id="s-container">
+    <div class="ui special cards">
+      <% @calendars.each do |calendar| %>
+      <div class="card">
+        <div class="dimmable image">
+          <% if calendar.image? %>
+            <% img_link = calendar.image %>
+          <% else %>
+            <% img_link = "/default/1.jpg" %>
+          <% end %>
+          <% if current_user %>
+          <div class="ui dimmer">
+            <div class="content">
+              <div class="center">
+                <% if current_user.calendars.include? calendar %>
+                  <div class="ui inverted button">Unfollow</div>
+                <% elsif %>
+                  <div class="ui inverted button">Unfollow</div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+          <img src="<%= img_link%>">
+        </div>
+        <div class="content">
+          <div class="header"><%= calendar.name %></div>
+          <div class="meta">
+            <%=link_to "#{calendar.official.name}", official_path(calendar.official)%>
+          </div>
+          <div class="description">
+            <%= calendar.description %>
+          </div>
+        </div>
+        <div class="extra content">
+          <span class="right floated">
+            <% if calendar.official.is_company? %>
+              <i class="fa-star icon"></i>
+              Official
+            <% else %>
+              Public
+            <% end %>
+          </span>
+          <span>
+            <i class="heart icon"></i>
+             <%= calendar.like_count %>
+          </span>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
