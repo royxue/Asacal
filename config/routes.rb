@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :officials
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
 
   resources :users
 
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
