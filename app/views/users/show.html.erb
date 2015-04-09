@@ -22,7 +22,7 @@
         Follow Officials
       </a>
       <a class="item" data-tab="cal-list">
-        Follow Calendarss
+        Follow Calendars
       </a>
       <a class="item" data-tab="eve-list">
         Follow Events
@@ -30,6 +30,22 @@
     </div>
       <div class="ui bottom attached active tab segment" data-tab="cal">
         <div id='calendar'></div>
+        <!-- Modal Start-->
+        <div id="eventModal" class="ui small modal">
+          <div class="ui card">
+            <div class="content">
+              <div class="header" id="eventTitle"></div>
+              <div class="meta" id="allDay"></div>
+              <div class="description" id="eventDes">
+              </div>
+            </div>
+            <div class="extra content">
+              <span class="left floated like" id="startTime"></span>
+              <span class="right floated star" id="endTime"></span>
+            </div>
+          </div>
+        </div>
+        <!-- Modal End -->
       </div>
       <div class="ui bottom attached tab segment" data-tab="off-list">
         No Officials Relationship Now
