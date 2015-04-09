@@ -16,6 +16,12 @@ RailsAdmin.config do |config|
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
+  config.authorize_with do
+    authenticate_or_request_with_http_basic('Site Message') do |username, password|
+      username == 'roy' && password == '12345678'
+    end
+  end
+
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
