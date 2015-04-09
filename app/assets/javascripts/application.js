@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+// turbolinks
 // Loads all Semantic javascripts
 //= require moment
 //= require fullcalendar
