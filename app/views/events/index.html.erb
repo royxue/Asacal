@@ -1,23 +1,56 @@
-<h1>Listing events</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="ui piled segment"><h1>Hot Events</h1></div>
 
 <br>
 
-<%= link_to 'New Event', new_event_path %>
+<div id="l-container">
+  <%= render "layouts/sidebar"%>
+  <div id="s-container">
+    <div class="ui special cards">
+      <% @events.each do |event| %>
+      <div class="card">
+        <div class="dimmable image">
+          <% if event.image? %>
+            <% img_link = event.image %>
+          <% else %>
+            <% img_link = "/default/1.jpg" %>
+          <% end %>
+          <% if current_user %>
+          <div class="ui dimmer">
+            <div class="content">
+              <div class="center">
+                <%=link_to follow_calendar_users_path(user: current_user, calendar: calendar), :method => :post do%>
+                  <% if current_user.calendars.include? calendar %>
+                    <div class="ui inverted button">Unfollow</div>
+                  <% elsif %>
+                    <div class="ui inverted button">Follow</div>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+          <img src="<%= img_link%>">
+        </div>
+        <div class="content">
+          <div class="header"><%= event.name %></div>
+          <div class="meta">
+            <%=link_to "#{event.calendar.name}", official_path(event.calendar)%>
+          </div>
+          <div class="description">
+            <%= event.description %>
+          </div>
+        </div>
+        <div class="extra content">
+          <span class="right floated">
+            <%= event.start_time.to_date %>
+          </span>
+          <span>
+            <i class="heart icon"></i>
+             <%= event.like_count %>
+          </span>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

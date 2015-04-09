@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   respond_to :html
 
   def index
-    @events = Event.all
+    @events = Event.all.order(like_count: :desc)
     respond_with(@events)
   end
 

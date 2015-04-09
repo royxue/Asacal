@@ -1,4 +1,112 @@
-<p id="notice"><%= notice %></p>
+<div id="header" class="ui piled segment">
+  <h1><%=current_official.name%></h1>
+  <span>
+    <%=link_to destroy_official_session_path, :method => :delete do%>
+    <div id="logout-btn" class="ui red animated button">
+      <div class="visible content">Log out</div>
+      <div class="hidden content">Now</div>
+    </div>
+    <%end%>
+  </span>
+</div>
 
-<%= link_to 'Edit', edit_official_path(@official) %> |
-<%= link_to 'Back', officials_path %>
+<div id="l-container">
+  <%= render "layouts/sidebar"%>
+  <div id="s-container">
+    <div class="ui tabluar menu">
+      <a class="active item" data-tab="cal">
+        Calendars
+      </a>
+      <a class="item" data-tab="event">
+        Events
+      </a>
+    </div>
+      <div class="ui bottom attached active tab segment" data-tab="cal">
+        <!-- Load Calendars -->
+        <div class="ui cards">
+          <% @calendars.each do |calendar| %>
+          <div class="card">
+            <div class="image">
+              <% if calendar.image? %>
+              <% img_link = calendar.image %>
+              <% else %>
+                <% img_link = "/default/1.jpg" %>
+              <% end %>
+              <img src="<%= img_link %>">
+            </div>
+            <div class="content">
+              <div class="header"><%= calendar.name %></div>
+              <div class="meta">
+                <%=link_to "#{calendar.official.name}", official_path(calendar.official)%>
+              </div>
+              <div class="description">
+                <%= calendar.description %>
+              </div>
+            </div>
+            <div class="extra content">
+              <span class="right floated">
+                <% if calendar.official.is_company? %>
+                  <i class="fa-star icon"></i>
+                  Official
+                <% else %>
+                  Public
+                <% end %>
+              </span>
+              <span>
+                <i class="heart icon"></i>
+                 <%= calendar.like_count %>
+              </span>
+            </div>
+            <%=link_to edit_calendar_path(calendar) do %>
+              <div class="ui bottom attached button">
+                <i class="pencil icon"></i>
+                Edit
+              </div>
+            <% end %>
+            <%=link_to calendar_path(calendar), :method => :delete, :confirm => "Are you sure to delete?" do %>
+              <div class="ui bottom attached button">
+                <i class="trash icon"></i>
+                Delete
+              </div>
+            <% end %>
+          </div>
+          <% end %>
+        </div>
+        <!-- load calendar cards -->
+      </div>
+
+      <div class="ui bottom attached tab segment" data-tab="event">
+        <!-- Load Events Data -->
+        <div class="ui cards">
+          <% @events.each do |event| %>
+          <div class="ui card">
+            <div class="content">
+              <%=link_to edit_event_path(event) do%>
+                <i class="right floated pencil icon"></i>
+              <% end %>
+              <%=link_to event_path(event), :method => :delete, :confirm => "Are you sure to delete?" do%>
+                <i class="right floated trash icon"></i>
+              <% end %>
+              <div class="header"><%= event.name %></div>
+              <div class="description">
+                <p><%= event.description %></p>
+              </div>
+            </div>
+            <div class="extra content">
+              <span class="left floated like">
+                <i class="like icon"></i>
+                <%= event.like_count %>
+              </span>
+              <span class="right floated star">
+                <i class="star icon"></i>
+                Undecide
+              </span>
+            </div>
+            </div>
+          <% end %>
+        </div>
+        <!-- Load Events Data -->
+      </div>
+
+  </div>
+</div>

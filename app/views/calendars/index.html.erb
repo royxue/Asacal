@@ -2,6 +2,7 @@
 
 <br>
 <div id="l-container">
+  <%= render "layouts/sidebar"%>
   <div id="s-container">
     <div class="ui special cards">
       <% @calendars.each do |calendar| %>
@@ -13,17 +14,19 @@
             <% img_link = "/default/1.jpg" %>
           <% end %>
           <% if current_user %>
-          <div class="ui dimmer">
-            <div class="content">
-              <div class="center">
-                <% if current_user.calendars.include? calendar %>
-                  <div class="ui inverted button">Unfollow</div>
-                <% elsif %>
-                  <div class="ui inverted button">Unfollow</div>
-                <% end %>
+            <div class="ui dimmer">
+              <div class="content">
+                <div class="center">
+                  <%=link_to follow_calendar_users_path(user: current_user, calendar: calendar), :method => :post do%>
+                  <% if current_user.calendars.include? calendar %>
+                      <div class="ui inverted button">Unfollow</div>
+                    <% elsif %>
+                      <div class="ui inverted button">Follow</div>
+                    <% end %>
+                  <% end %>
+                </div>
               </div>
             </div>
-          </div>
           <% end %>
           <img src="<%= img_link%>">
         </div>

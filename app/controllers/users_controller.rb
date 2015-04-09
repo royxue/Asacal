@@ -14,6 +14,22 @@ class UsersController < ApplicationController
         format.json { render json:@events.to_json }
       end
     end
+
+    def follow_calendar
+      @user = User.find(params[:user])
+      calendar = Calendar.find(params[:calendar])
+      if @user.calendars.include?  calendar
+        @user.calendars.delete(calendar)
+      else
+        @user.calendars<<(calendar)
+      end
+
+      redirect_to user_path(@user)
+
+    end
+
+    def follow_event
+    end
     #
     # def new
     #   @user = user.new
@@ -43,8 +59,12 @@ class UsersController < ApplicationController
       def set_user
         @user = User.find(params[:id])
       end
-      #
-      # def user_params
-      #   params[:user]
-      # end
+
+      def user_params
+        params[:user]
+      end
+
+      def follow_params
+        params[:user, :calendar, :event]
+      end
 end
