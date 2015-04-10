@@ -37,5 +37,6 @@ class Official < ActiveRecord::Base
   def default
     self.is_company ||= false
     self.like_count ||= 0
+    self.verified ||= false
   end
 end

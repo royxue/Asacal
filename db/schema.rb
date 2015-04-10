@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150406075604) do
+ActiveRecord::Schema.define(version: 20150410085836) do
 
   create_table "calendars", force: true do |t|
     t.string   "name"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20150406075604) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.boolean  "verified"
   end
 
   add_index "officials", ["email"], name: "index_officials_on_email", unique: true, using: :btree
