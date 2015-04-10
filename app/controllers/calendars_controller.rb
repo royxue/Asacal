@@ -23,6 +23,7 @@ class CalendarsController < ApplicationController
 
   def create
     @calendar = Calendar.new(calendar_params)
+    @calendar.official = current_official
     @calendar.save
     respond_with(@calendar)
   end
