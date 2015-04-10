@@ -15,25 +15,25 @@ class OfficialsController < ApplicationController
     respond_with(@official, @calendars, @events)
   end
 
-  # def new
-  #   @official = Official.new
-  #   respond_with(@official)
-  # end
-  #
-  # def edit
-  # end
-  #
-  # def create
-  #   @official = Official.new(official_params)
-  #   @official.save
-  #   respond_with(@official)
-  # end
-  #
-  # def update
-  #   @official.update(official_params)
-  #   respond_with(@official)
-  # end
-  #
+  def new
+    @official = Official.new
+    respond_with(@official)
+  end
+
+  def edit
+  end
+
+  def create
+    @official = Official.new(official_params)
+    @official.save
+    respond_with(@official)
+  end
+  
+  def update
+    @official.update(official_params)
+    respond_with(@official)
+  end
+
   # def destroy
   #   @official.destroy
   #   respond_with(@official)

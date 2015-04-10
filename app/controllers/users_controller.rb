@@ -25,31 +25,30 @@ class UsersController < ApplicationController
       end
 
       redirect_to user_path(@user)
-
     end
 
     def follow_event
     end
-    #
-    # def new
-    #   @user = user.new
-    #   respond_with(@user)
-    # end
-    #
-    # def edit
-    # end
-    #
-    # def create
-    #   @user = user.new(user_params)
-    #   @user.save
-    #   respond_with(@user)
-    # end
-    #
-    # def update
-    #   @user.update(user_params)
-    #   respond_with(@user)
-    # end
-    #
+
+    def new
+      @user = user.new
+      respond_with(@user)
+    end
+
+    def edit
+    end
+
+    def create
+      @user = user.new(user_params)
+      @user.save
+      respond_with(@user)
+    end
+
+    def update
+      @user.update(user_params)
+      respond_with(@user)
+    end
+    
     # def destroy
     #   @user.destroy
     #   respond_with(@user)
