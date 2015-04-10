@@ -26,6 +26,7 @@ class Calendar < ActiveRecord::Base
   def default
     self.like_count ||= 0
     self.is_public ||= true
+    self.official ||= current_official
   end
 
 end
