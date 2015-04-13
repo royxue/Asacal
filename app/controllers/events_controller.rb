@@ -43,6 +43,6 @@ class EventsController < ApplicationController
     end
 
     def event_params
-      params[:event]
+      params.require(:event).permit(:img)
     end
 end

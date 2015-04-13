@@ -40,7 +40,7 @@ gem 'spring',        group: :development
 
 gem 'rails_admin'
 gem 'devise'
-gem 'rmagick', :require => false
+gem 'rmagick'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'simple_form'
@@ -53,6 +53,7 @@ gem 'font-awesome-rails'
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+gem 'paperclip', "~> 4.2"
 
 
 group :development, :test do

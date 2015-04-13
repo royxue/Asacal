@@ -11,18 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150410085836) do
+ActiveRecord::Schema.define(version: 20150413080300) do
 
   create_table "calendars", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.string   "image"
     t.string   "link"
     t.integer  "like_count"
     t.boolean  "is_public"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.integer  "official_id"
+    t.string   "img_file_name"
+    t.string   "img_content_type"
+    t.integer  "img_file_size"
+    t.datetime "img_updated_at"
   end
 
   add_index "calendars", ["official_id"], name: "index_calendars_on_official_id", using: :btree
@@ -30,17 +33,20 @@ ActiveRecord::Schema.define(version: 20150410085836) do
   create_table "events", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.string   "image"
     t.string   "place"
     t.boolean  "is_all_day"
     t.datetime "start_time"
     t.datetime "end_time"
     t.string   "link"
     t.text     "note"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.integer  "calendar_id"
     t.integer  "like_count"
+    t.string   "img_file_name"
+    t.string   "img_content_type"
+    t.integer  "img_file_size"
+    t.datetime "img_updated_at"
   end
 
   add_index "events", ["calendar_id"], name: "index_events_on_calendar_id", using: :btree

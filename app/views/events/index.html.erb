@@ -9,8 +9,8 @@
       <% @events.each do |event| %>
       <div class="card">
         <div class="dimmable image">
-          <% if event.image? %>
-            <% img_link = event.image %>
+          <% if event.img? %>
+            <% img_link = event.img.url %>
           <% else %>
             <% img_link = "/default/1.jpg" %>
           <% end %>

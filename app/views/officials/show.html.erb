@@ -20,6 +20,9 @@
       <a class="item" data-tab="event">
         Events
       </a>
+      <a class="item" data-tab="actions">
+        Actions
+      </a>
     </div>
       <div class="ui bottom attached active tab segment" data-tab="cal">
         <!-- Load Calendars -->
@@ -27,8 +30,8 @@
           <% @calendars.each do |calendar| %>
           <div class="card">
             <div class="image">
-              <% if calendar.image? %>
-              <% img_link = calendar.image %>
+              <% if calendar.img? %>
+              <% img_link = calendar.img.url(:medium) %>
               <% else %>
                 <% img_link = "/default/1.jpg" %>
               <% end %>
@@ -123,5 +126,15 @@
         </div>
         <!-- Load Events Data -->
       </div>
+
+      <div class="ui bottom attached tab segment" data-tab="actions">
+        <%=link_to new_calendar_path do%>
+          <div class="ui pink button">Create New Calendar</div>
+        <% end %>
+        <%=link_to new_event_path do%>
+          <div class="ui teal button">Create New Event</div>
+        <% end %>
+      </div>
+
   </div>
 </div>

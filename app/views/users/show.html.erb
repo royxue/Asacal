@@ -56,8 +56,8 @@
           <% @calendars.each do |calendar| %>
           <div class="card">
             <div class="image">
-              <% if calendar.image? %>
-              <% img_link = calendar.image %>
+              <% if calendar.img? %>
+              <% img_link = calendar.img.url(:medium) %>
               <% else %>
                 <% img_link = "/default/1.jpg" %>
               <% end %>

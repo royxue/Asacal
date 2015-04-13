@@ -23,6 +23,9 @@ class Calendar < ActiveRecord::Base
   belongs_to :official
   has_and_belongs_to_many :users, join_table: :users_calendars
 
+  has_attached_file :img, :styles => { :medium => "300x300#", :thumb => "100x100#" }, :url => "/calendars/:id/:style/:basename.:extension", :path => ":rails_root/public/calendars/:id/:style/:basename.:extension"
+  validates_attachment_content_type :img, :content_type => /\Aimage\/.*\Z/
+
   def default
     self.like_count ||= 0
     self.is_public ||= true
