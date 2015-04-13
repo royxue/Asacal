@@ -4,7 +4,7 @@
     <%=link_to destroy_official_session_path, :method => :delete do%>
     <div id="logout-btn" class="ui red animated button">
       <div class="visible content">Log out</div>
-      <div class="hidden content">Now</div>
+      <div class="hidden content">Now?</div>
     </div>
     <%end%>
   </span>
@@ -97,16 +97,31 @@
                 <i class="like icon"></i>
                 <%= event.like_count %>
               </span>
-              <span class="right floated star">
-                <i class="star icon"></i>
-                Undecide
+              <span class="right floated">
+                "Add Later"
               </span>
+            </div>
+            <div class="extra content">
+              <% if event.is_all_day %>
+              <span class="left floated">
+                <%= event.start_time.to_formatted_s(:short) %>
+              </span>
+              <span class="right floated">
+                All Day
+              </span>
+              <% else %>
+              <span class="left floated">
+                <%= event.start_time.to_formatted_s(:short) %>
+              </span>
+              <span class="right floated">
+                <%= event.end_time.to_formatted_s(:short) %>
+              </span>
+              <% end %>
             </div>
             </div>
           <% end %>
         </div>
         <!-- Load Events Data -->
       </div>
-
   </div>
 </div>
