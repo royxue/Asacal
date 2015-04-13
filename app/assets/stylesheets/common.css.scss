@@ -1,6 +1,7 @@
 #header{
   height: 80px;
-  padding: 10px;
+  padding: 0 10%;
+
   h1{
     margin: 10px 0;
     width: auto;
@@ -9,9 +10,11 @@
   #logout-btn{
     display: inline-block;
     float: right;
+    top: 20px;
   }
   #user-image{
     display: inline-block;
+    margin: 0 20px;
   }
 }
 
