@@ -34,11 +34,12 @@
       Sign Up
     </div>
     <% end %>
-    <%= link_to "Apply", new_official_registration_path, class:"button-link"%>
+    <%= link_to new_official_registration_path do%>
     <div id="signup" class="red ui labeled icon button">
       <i class="signup icon"></i>
       Apply
     </div>
+    <% end %>
     <p>Official Apply Entrance</p>
   </div>
 </div>
