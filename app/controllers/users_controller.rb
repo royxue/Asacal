@@ -1,14 +1,9 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-    # def index
-    #   @users = user.all
-    #   respond_with(@users)
-    # end
-
     def show
-      calendars = @user.calendars
-      @events = Event.where(calendar: calendars)
+      @calendars = @user.calendars
+      @events = Event.where(calendar: @calendars)
       respond_to do |format|
         format.html
         format.json { render json:@events.to_json }
@@ -48,11 +43,6 @@ class UsersController < ApplicationController
       @user.update(user_params)
       respond_with(@user)
     end
-    
-    # def destroy
-    #   @user.destroy
-    #   respond_with(@user)
-    # end
 
     private
       def set_user
