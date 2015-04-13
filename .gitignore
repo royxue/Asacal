@@ -25,4 +25,5 @@ public/assets/*
 !public/assets/manifest*
 
 /vendor/bundle
-/public/uploads
+/public/calendars
+/public/events
