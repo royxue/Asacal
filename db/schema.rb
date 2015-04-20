@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150413080300) do
+ActiveRecord::Schema.define(version: 20150420093514) do
 
   create_table "calendars", force: true do |t|
     t.string   "name"
@@ -107,6 +107,11 @@ ActiveRecord::Schema.define(version: 20150413080300) do
   create_table "users_events", force: true do |t|
     t.integer "user_id",  null: false
     t.integer "event_id", null: false
+  end
+
+  create_table "users_officials", force: true do |t|
+    t.integer "user_id",     null: false
+    t.integer "official_id", null: false
   end
 
 end

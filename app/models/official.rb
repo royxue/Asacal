@@ -33,6 +33,7 @@ class Official < ActiveRecord::Base
   validates :name, :description, presence: true
 
   has_many :calendars, dependent: :destroy
+  has_and_belongs_to_many :users, join_table: :users_officials
 
   def default
     self.is_company ||= false
