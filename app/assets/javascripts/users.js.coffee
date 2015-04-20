@@ -22,10 +22,10 @@ $ ->
             $('#endTime').html "All Day :)"
           else
             $('#startTime').html moment(event.start).format('MMM Do HH:mm A')
-            $('#startTime').html moment(event.start).format('MMM Do HH:mm A')
+            $('#endTime').html moment(event.end).format('MMM Do HH:mm A')
           $('#eventTitle').html event.title
           $('#eventDes').html event.description
-          $('#allDay').html event.allDay
+          $('#location').html event.allDay
           $('#eventModal').modal 'show'
     }
     return

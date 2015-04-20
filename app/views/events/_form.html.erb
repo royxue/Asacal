@@ -8,7 +8,6 @@
       <%=f.input :calendar, :collection => current_official.calendars, :label_method => :name, :value_method => :id, :include_blank => true %>
       <%=f.input :name %>
       <%=f.input :description, :as => :text %>
-      <%=f.input :image %>
       <%=f.input :img, as: :file, hint: "Img should be bigger than 300x300" %>
       <%=f.input :place %>
       <%=f.input :link %>

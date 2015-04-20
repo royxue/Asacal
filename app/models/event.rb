@@ -44,6 +44,8 @@ class Event < ActiveRecord::Base
       :end => self.end_time,
       :description => self.description,
       :allDay => self.is_all_day,
+      :location => self.place,
+      :like_count => self.like_count,
   }
   end
 end
