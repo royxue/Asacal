@@ -35,6 +35,9 @@ class Official < ActiveRecord::Base
   has_many :calendars, dependent: :destroy
   has_and_belongs_to_many :users, join_table: :users_officials
 
+  has_attached_file :img, :styles => { :medium => "300x300#", :thumb => "100x100#" }, :url => "/assets/officials/:id/:style/:basename.:extension", :path => ":rails_root/public/assets/officials/:id/:style/:basename.:extension"
+  validates_attachment_content_type :img, :content_type => /\Aimage\/.*\Z/
+
   def default
     self.is_company ||= false
     self.like_count ||= 0

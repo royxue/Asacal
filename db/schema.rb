@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150420093514) do
+ActiveRecord::Schema.define(version: 20150421071511) do
 
   create_table "calendars", force: true do |t|
     t.string   "name"
@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 20150420093514) do
   create_table "officials", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.string   "image"
     t.string   "link"
     t.boolean  "is_company"
     t.integer  "like_count"
@@ -71,6 +70,10 @@ ActiveRecord::Schema.define(version: 20150420093514) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.boolean  "verified"
+    t.string   "img_file_name"
+    t.string   "img_content_type"
+    t.integer  "img_file_size"
+    t.datetime "img_updated_at"
   end
 
   add_index "officials", ["email"], name: "index_officials_on_email", unique: true, using: :btree
