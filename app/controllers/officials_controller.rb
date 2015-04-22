@@ -3,6 +3,11 @@ class OfficialsController < ApplicationController
 
   respond_to :html
 
+  def index
+    @officials = Official.all
+    respond_with(@officials)
+  end
+
   def show
     @calendars = Calendar.where(official: @official).order(created_at: :desc)
     @events = Event.where(calendar: @calendars).order(created_at: :desc)
