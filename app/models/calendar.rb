@@ -2,16 +2,19 @@
 #
 # Table name: calendars
 #
-#  id          :integer          not null, primary key
-#  name        :string(255)
-#  description :text
-#  image       :string(255)
-#  link        :string(255)
-#  like_count  :integer
-#  is_public   :boolean
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  official_id :integer
+#  id               :integer          not null, primary key
+#  name             :string(255)
+#  description      :text
+#  link             :string(255)
+#  like_count       :integer
+#  is_public        :boolean
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  official_id      :integer
+#  img_file_name    :string(255)
+#  img_content_type :string(255)
+#  img_file_size    :integer
+#  img_updated_at   :datetime
 #
 
 class Calendar < ActiveRecord::Base

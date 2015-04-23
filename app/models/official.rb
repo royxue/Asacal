@@ -5,7 +5,6 @@
 #  id                     :integer          not null, primary key
 #  name                   :string(255)
 #  description            :text
-#  image                  :string(255)
 #  link                   :string(255)
 #  is_company             :boolean
 #  like_count             :integer
@@ -21,6 +20,11 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
+#  verified               :boolean
+#  img_file_name          :string(255)
+#  img_content_type       :string(255)
+#  img_file_size          :integer
+#  img_updated_at         :datetime
 #
 
 class Official < ActiveRecord::Base
