@@ -31,9 +31,11 @@
     <i class="check icon"></i>
     Hot Events
   </a>
-  <a class="item">
-    <i class="settings icon"></i>
-    Settings
-  </a>
+  <% if current_official %>
+    <a href="/users/edit" class="item">
+      <i class="settings icon"></i>
+      Settings
+    </a>
+  <% end %>
 </div>
 <div class="dimmed pusher"></div>
