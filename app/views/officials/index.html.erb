@@ -24,9 +24,11 @@
                 <% if official.is_company %>
                   <div class="ui label">会社</div>
                 <% end %>
-                <div class="ui right floated green button">
-                  Follow
-                </div>
+                <%= link_to follow_official_users_path(user: current_user, official: official), :method => :post do %>
+                  <div class="ui right floated green button">
+                    Follow
+                  </div>
+                <% end %>
               </div>
             </div>
           </div>

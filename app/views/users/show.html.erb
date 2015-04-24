@@ -47,7 +47,38 @@
         <!-- Modal End -->
       </div>
       <div class="ui bottom attached tab segment" data-tab="off-list">
-        No Officials Relationship Now
+        <!-- Official List -->
+        <div class="ui segment">
+          <div class="ui divided items">
+            <% @officials.each do |official| %>
+              <div class="item">
+                <div class="image">
+                  <img src="<%=official.img.url(:medium)%>">
+                </div>
+                <div class="content">
+                  <a class="header"><%= official.name %></a>
+                  <div class="meta">
+                    <span class="cinema"><a href="<%= official.link %>"><%= official.link %></a></span>
+                  </div>
+                  <div class="description">
+                    <p><%= official.description %></p>
+                  </div>
+                  <div class="extra">
+                    <% if official.is_company %>
+                      <div class="ui label">会社</div>
+                    <% end %>
+                    <%= link_to follow_official_users_path(user: current_user, official: official), :method => :post do %>
+                      <div class="ui right floated green button">
+                        UnFollow
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- Official List -->
       </div>
       <div class="ui bottom attached tab segment" data-tab="cal-list">
         <!-- Load Calendars -->

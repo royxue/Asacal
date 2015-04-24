@@ -2,12 +2,25 @@ class UsersController < ApplicationController
     before_action :set_user, only: [:show, :edit, :update, :destroy]
 
     def show
+      @officials = @user.officials
       @calendars = @user.calendars
       @events = Event.where(calendar: @calendars)
       respond_to do |format|
         format.html
         format.json { render json:@events.to_json }
       end
+    end
+
+    def follow_official
+      @user = User.find(params[:user])
+      official = Official.find(params[:official])
+      if @user.officials.include?  official
+        @user.officials.delete(official)
+      else
+        @user.officials<<(official)
+      end
+
+      redirect_to user_path(@user)
     end
 
     def follow_calendar
@@ -54,6 +67,6 @@ class UsersController < ApplicationController
       end
 
       def follow_params
-        params[:user, :calendar, :event]
+        params[:user, :official, :calendar, :event]
       end
 end

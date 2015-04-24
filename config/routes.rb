@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show] do
     collection do
+      post :follow_official, action: :follow_official
       post :follow_calendar, action: :follow_calendar
       post :follow_event, action: :follow_event
     end

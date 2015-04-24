@@ -23,6 +23,9 @@
       <a class="item" data-tab="actions">
         Actions
       </a>
+      <a class="item" data-tab="da">
+        Data Analysis
+      </a>
     </div>
       <div class="ui bottom attached active tab segment" data-tab="cal">
         <!-- Load Calendars -->
@@ -128,6 +131,15 @@
       </div>
 
       <div class="ui bottom attached tab segment" data-tab="actions">
+        <%=link_to new_calendar_path do%>
+          <div class="ui pink button">Create New Calendar</div>
+        <% end %>
+        <%=link_to new_event_path do%>
+          <div class="ui teal button">Create New Event</div>
+        <% end %>
+      </div>
+
+      <div class="ui bottom attached tab segment" data-tab="da">
         <%=link_to new_calendar_path do%>
           <div class="ui pink button">Create New Calendar</div>
         <% end %>
