@@ -43,6 +43,6 @@ class EventsController < ApplicationController
     end
 
     def event_params
-      params.require(:event).permit(:img)
+      params.require(:event).permit(:calendar_id, :name, :description, :place, :link, :note, :is_all_day, :start_time, :end_time, :img)
     end
 end
