@@ -33,8 +33,6 @@ class Official < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  before_save :complete_link
-
   after_initialize :default
   validates :name, :description, presence: true
 
@@ -43,12 +41,6 @@ class Official < ActiveRecord::Base
 
   has_attached_file :img, :styles => { :medium => "300x300#", :thumb => "100x100#" }, :url => "/assets/officials/:id/:style/:basename.:extension", :path => ":rails_root/public/assets/officials/:id/:style/:basename.:extension"
   validates_attachment_content_type :img, :content_type => /\Aimage\/.*\Z/
-
-  def complete_link
-    unless self.link.include? "http"
-      self.link = "http://#{self.link}"
-    end
-  end
 
   def default
     self.is_company ||= false

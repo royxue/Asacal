@@ -44,6 +44,6 @@ class CalendarsController < ApplicationController
     end
 
     def calendar_params
-      params.require(:calendar).permit(:img)
+      params.require(:calendar).permit(:name, :decription, :img, :link, :is_public)
     end
 end
