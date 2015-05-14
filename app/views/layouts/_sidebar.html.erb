@@ -2,7 +2,7 @@
 <div id="nav" class="ui black hugn lauch right attached button">
   <i class="layout list icon"></i>
   <span class="text">
-    Menu
+    メニュー
   </span>
 </div>
 
@@ -11,30 +11,30 @@
     <h3>Asacal</h3>
   </div>
   <div class="active red item">
-    Today
+    今日
     <div class="ui red label">2</div>
   </div>
   <% if current_user %>
-    <%=link_to "SelfPage", user_path(current_user), class: "item" %>
+    <%=link_to "トップ", user_path(current_user), class: "item" %>
   <% elsif current_official %>
-    <%=link_to "SelfPage", official_path(current_official), class: "item" %>
+    <%=link_to "トップ", official_path(current_official), class: "item" %>
   <% end %>
   <a href="/officials" class="item">
     <i class="users icon"></i>
-    Hot Officials
+    人気公式一覧
   </a>
   <a href="/calendars" class="item">
     <i class="calendar icon"></i>
-    Hot Calendars
+    人気日程表一覧
   </a>
   <a href="/events" class="item">
     <i class="check icon"></i>
-    Hot Events
+    人気イベント一覧
   </a>
   <% if current_official %>
     <a href="/users/edit" class="item">
       <i class="settings icon"></i>
-      Settings
+      自分の設定
     </a>
   <% end %>
 </div>

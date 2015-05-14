@@ -3,7 +3,7 @@
   <span>
     <%=link_to destroy_official_session_path, :method => :delete do%>
     <div id="logout-btn" class="ui red animated button">
-      <div class="visible content">Log out</div>
+      <div class="visible content">ログアウト</div>
       <div class="hidden content">Now?</div>
     </div>
     <%end%>
@@ -15,16 +15,16 @@
   <div id="s-container">
     <div class="ui tabluar menu">
       <a class="active item" data-tab="cal">
-        Calendars
+        日程表
       </a>
       <a class="item" data-tab="event">
-        Events
+        イベント
       </a>
       <a class="item" data-tab="actions">
-        Actions
+        動作
       </a>
       <a class="item" data-tab="da">
-        Data Analysis
+        データ分析
       </a>
     </div>
       <div class="ui bottom attached active tab segment" data-tab="cal">
@@ -53,9 +53,9 @@
               <span class="right floated">
                 <% if calendar.official.is_company? %>
                   <i class="fa-star icon"></i>
-                  Official
+                  公式確認
                 <% else %>
-                  Public
+                  開放
                 <% end %>
               </span>
               <span>
@@ -66,13 +66,13 @@
             <%=link_to edit_calendar_path(calendar) do %>
               <div class="ui bottom attached button">
                 <i class="pencil icon"></i>
-                Edit
+                編集
               </div>
             <% end %>
             <%=link_to calendar_path(calendar), :method => :delete, :confirm => "Are you sure to delete?" do %>
               <div class="ui bottom attached button">
                 <i class="trash icon"></i>
-                Delete
+                削除
               </div>
             <% end %>
           </div>
@@ -113,7 +113,7 @@
                 <%= event.start_time.to_formatted_s(:short) %>
               </span>
               <span class="right floated">
-                All Day
+                一日
               </span>
               <% else %>
               <span class="left floated">
@@ -132,20 +132,15 @@
 
       <div class="ui bottom attached tab segment" data-tab="actions">
         <%=link_to new_calendar_path do%>
-          <div class="ui pink button">Create New Calendar</div>
+          <div class="ui pink button">新日程表追加</div>
         <% end %>
         <%=link_to new_event_path do%>
-          <div class="ui teal button">Create New Event</div>
+          <div class="ui teal button">新イベント追加</div>
         <% end %>
       </div>
 
       <div class="ui bottom attached tab segment" data-tab="da">
-        <%=link_to new_calendar_path do%>
-          <div class="ui pink button">Create New Calendar</div>
-        <% end %>
-        <%=link_to new_event_path do%>
-          <div class="ui teal button">Create New Event</div>
-        <% end %>
+        Data Analysis
       </div>
 
   </div>

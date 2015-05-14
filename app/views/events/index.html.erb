@@ -1,4 +1,4 @@
-<div class="ui piled segment"><h1>Hot Events</h1></div>
+<div class="ui piled segment"><h1>人気イベント一覧</h1></div>
 
 <br>
 
@@ -18,11 +18,11 @@
           <div class="ui dimmer">
             <div class="content">
               <div class="center">
-                <%=link_to follow_calendar_users_path(user: current_user, calendar: calendar), :method => :post do%>
-                  <% if current_user.calendars.include? calendar %>
-                    <div class="ui inverted button">Unfollow</div>
+                <%=link_to follow_event_users_path(user: current_user, event: event), :method => :post do%>
+                  <% if current_user.events.include? event %>
+                    <div class="ui inverted button">削除</div>
                   <% elsif %>
-                    <div class="ui inverted button">Follow</div>
+                    <div class="ui inverted button">追加</div>
                   <% end %>
                 <% end %>
               </div>

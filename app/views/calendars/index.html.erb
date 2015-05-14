@@ -1,4 +1,4 @@
-<div id="header" class="ui piled segment"><h1>Hot Calendars</h1></div>
+<div id="header" class="ui piled segment"><h1>人気日程表一覧</h1></div>
 
 <br>
 <div id="l-container">
@@ -19,9 +19,9 @@
                 <div class="center">
                   <%=link_to follow_calendar_users_path(user: current_user, calendar: calendar), :method => :post do%>
                   <% if current_user.calendars.include? calendar %>
-                      <div class="ui inverted button">Unfollow</div>
+                      <div class="ui inverted button">削除</div>
                     <% elsif %>
-                      <div class="ui inverted button">Follow</div>
+                      <div class="ui inverted button">追加</div>
                     <% end %>
                   <% end %>
                 </div>
@@ -43,9 +43,9 @@
           <span class="right floated">
             <% if calendar.official.is_company? %>
               <i class="fa-star icon"></i>
-              Official
+              公式確認
             <% else %>
-              Public
+              開放
             <% end %>
           </span>
           <span>
