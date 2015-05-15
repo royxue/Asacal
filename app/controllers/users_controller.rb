@@ -36,6 +36,15 @@ class UsersController < ApplicationController
     end
 
     def follow_event
+      @user = User.find(params[:user])
+      event = Event.find(params[:event])
+      if @user.events.include?  event
+        @user.events.delete(event)
+      else
+        @user.events<<(event)
+      end
+
+      redirect_to user_path(@user)
     end
 
     def new
